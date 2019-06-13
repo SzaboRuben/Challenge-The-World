@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'captureit ';
+    src: url(../font/captureit.ttf);
+}
+
+.main-text {
+   position: absolute;
+   bottom: 100px;
+   right: 100px;
+ }
+
+.captureit {
+    font-family: captureit;
+}
