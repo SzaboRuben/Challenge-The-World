@@ -10,9 +10,7 @@ import java.util.List;
 public class ProgramDao {
 
 
-    JdbcTemplate jdbcTemplate;
-
-    private RowMapper<Program> programRowMapper = (rs,i) ->
+    private static final RowMapper<Program> programRowMapper = (rs, i) ->
             new Program(
                     rs.getString("location"),
                     rs.getString("activityType"),
@@ -24,10 +22,28 @@ public class ProgramDao {
                     rs.getInt("candidateLimit"),
                     rs.getString("programStatus")
             );
+    private static final String SQL_SELECT_ALL_PROGRAMS = "SELECT location, activityType,season,startDate,endDate ,description,price, candidateLimit ,programStatus from program";
+    JdbcTemplate jdbcTemplate;
 
+    public ProgramDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public List<Program> listPrograms() {
-//        jdbcTemplate.query("SELECT location, activityType,season  ")
-        return null;
+        return jdbcTemplate.query(SQL_SELECT_ALL_PROGRAMS, programRowMapper);
+    }
+
+    public void saveProductAndGetId(Program program) {
+        jdbcTemplate.update("INSERT INTO `program`(`location`, `activityType`, `season`, `startDate`, `endDate`, `description`, `price`, `candidateLimit`, `programStatus`)" +
+                        "VALUES (?,?,?,?,?,?,?,?,?)",
+                program.getLocation(),
+                program.getActivityType(),
+                program.getSeason(),
+                program.getStartDate(),
+                program.getEndDate(),
+                program.getDescription(),
+                program.getPrice(),
+                program.getCandidateLimit(),
+                program.getProgramStatus());
     }
 }

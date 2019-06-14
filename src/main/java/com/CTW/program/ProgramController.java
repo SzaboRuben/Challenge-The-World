@@ -2,6 +2,8 @@ package com.CTW.program;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,7 +18,12 @@ public class ProgramController {
     }
 
     @GetMapping("/programs")
-    public List<Program> listPrograms(){
-        return  programService.listPrograms();
+    public List<Program> listPrograms() {
+        return programService.listPrograms();
+    }
+
+    @PostMapping("/programs")
+    public void saveProductAndGetId(@RequestBody Program program) {
+        programService.saveProductAndGetId(program);
     }
 }
