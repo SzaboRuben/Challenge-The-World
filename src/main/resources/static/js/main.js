@@ -23,7 +23,7 @@ function listPrograms(jsonData) {
                 <div class="card-body">
                 <p class="card-text surf medium">${jsonData[i].activityType} <img src='images/icons/${jsonData[i].activityType}.png'></p>
                 <p class="card-text">${jsonData[i].location}</p>
-                <div class="d-flex justify-content-between align-items-center">
+                <div>
                     <a href='product.html?address=${jsonData[i].address}'>
                     <div class="btn-group">
                     <button type="button" class="btn btn-lm btn-outline-secondary">Details</button>
