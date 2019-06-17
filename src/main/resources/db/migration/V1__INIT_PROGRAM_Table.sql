@@ -15,6 +15,6 @@ engine = innodb character set = utf8 collate utf8_general_ci;
 
 INSERT INTO `program`
 (`location`, `activityType`, `season`, `startDate`, `endDate`, `price`, `candidateLimit`, `programStatus`) VALUES
-('High Tatras','Excursion','Summer', '2018-06-01', '2018-06-04', 40000, 15, 'Postponed'),
-('Austrian Alps','Mountaineering','Spring', '2018-05-01', '2018-05-04', 65000, 15, 'Activ'),
-('Julian Alps','Mountaineering','Autumn', '2018-09-01', '2018-09-05', 55000, 15, 'Activ')
+('High Tatras','HIKING','Summer', '2018-06-01', '2018-06-04', 40000, 15, 'POSTPONED'),
+('Austrian Alps','MOUNTAINEERING','Spring', '2018-05-01', '2018-05-04', 65000, 15, 'ACTIVE'),
+('Julian Alps','RAFTING','Autumn', '2018-09-01', '2018-09-05', 55000, 15, 'ACTIVE')

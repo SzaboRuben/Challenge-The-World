@@ -1,38 +1,39 @@
 package com.CTW.program;
 
-import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Program {
 
     private int id;
+    private String address;
     private String location;
-    private String activityType;
+    private ActivityType activityType;
     private String season;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String description;
     private BigDecimal price;
     private int candidateLimit;
-    private String programStatus;
+    private ProgramStatus programStatus;
 
     public Program() {
     }
 
-    public Program(String location, String activityType, String season, LocalDateTime startDate,
+    public Program(int id , String location, String activityType, String season, LocalDateTime startDate,
                    LocalDateTime endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
+        this.id = id;
+        this.address = createAddress(location, activityType);
         this.location = location;
-        this.activityType = activityType;
+        this.activityType = ActivityType.valueOf(activityType);
         this.season = season;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
         this.price = price;
         this.candidateLimit = candidateLimit;
-        this.programStatus = programStatus;
+        this.programStatus = ProgramStatus.valueOf(programStatus);
     }
 
     public int getId() {
@@ -43,7 +44,7 @@ public class Program {
         return location;
     }
 
-    public String getActivityType() {
+    public ActivityType getActivityType() {
         return activityType;
     }
 
@@ -71,7 +72,15 @@ public class Program {
         return candidateLimit;
     }
 
-    public String getProgramStatus() {
+    public ProgramStatus getProgramStatus() {
         return programStatus;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    private String createAddress(String location, String activityType){
+        return location.toLowerCase() + "-" + activityType.toLowerCase();
     }
 }

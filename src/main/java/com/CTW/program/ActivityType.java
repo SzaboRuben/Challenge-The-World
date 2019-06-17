@@ -2,10 +2,10 @@ package com.CTW.program;
 
 public enum ActivityType {
 
-    MOUNTAINEERING("Mountaineering"), HIKING("Hiking"),
-    SNOWBOARD("Snowboard"), ROCKCLIMBING("RockClimbing"),
-    BACKPACKING("Backpacing"), CANOEING("Canoeing"),
-    KAYAKING("Kayaking"), RAFTING("Rafting");
+    MOUNTAINEERING("mountaineering"), HIKING("hiking"),
+    SNOWBOARD("snowboard"), ROCKCLIMBING("rockclimbing"),
+    BACKPACKING("backpacing"), CANOEING("canoeing"),
+    KAYAKING("kayaking"), RAFTING("rafting");
 
     String name;
 
