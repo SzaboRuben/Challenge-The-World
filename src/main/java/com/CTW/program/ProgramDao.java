@@ -13,6 +13,7 @@ public class ProgramDao {
     private static final RowMapper<Program> programRowMapper = (rs, i) ->
             new Program(
                     rs.getInt("id"),
+                    rs.getString("programCode"),
                     rs.getString("location"),
                     rs.getString("activityType"),
                     rs.getString("season"),
@@ -23,7 +24,7 @@ public class ProgramDao {
                     rs.getInt("candidateLimit"),
                     rs.getString("programStatus")
             );
-    private static final String SQL_SELECT_ALL_PROGRAMS = "SELECT id, location, activityType,season,startDate,endDate ,description,price, candidateLimit ,programStatus from program";
+    private static final String SQL_SELECT_ALL_PROGRAMS = "SELECT id, programCode, location, activityType,season,startDate,endDate ,description,price, candidateLimit ,programStatus from program";
     JdbcTemplate jdbcTemplate;
 
     public ProgramDao(JdbcTemplate jdbcTemplate) {

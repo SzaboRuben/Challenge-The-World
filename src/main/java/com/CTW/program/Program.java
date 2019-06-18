@@ -8,6 +8,7 @@ public class Program {
 
     private int id;
     private String address;
+    private String programCode;
     private String location;
     private ActivityType activityType;
     private String season;
@@ -21,9 +22,10 @@ public class Program {
     public Program() {
     }
 
-    public Program(int id , String location, String activityType, String season, LocalDateTime startDate,
+    public Program(int id , String programCode, String location, String activityType, String season, LocalDateTime startDate,
                    LocalDateTime endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
         this.id = id;
+        this.programCode = programCode;
         this.address = createAddress(location, activityType);
         this.location = location;
         this.activityType = ActivityType.valueOf(activityType);

@@ -2,12 +2,12 @@ package com.CTW.program;
 
 public enum ActivityType {
 
-    MOUNTAINEERING("mountaineering"), HIKING("hiking"),
-    SNOWBOARD("snowboard"), ROCKCLIMBING("rockclimbing"),
-    BACKPACKING("backpacing"), CANOEING("canoeing"),
-    KAYAKING("kayaking"), RAFTING("rafting");
+    MOUNTAINEERING("Mountaineering"), HIKING("Hiking"),
+    SNOWBOARD("snowboard"), ROCKCLIMBING("Rockclimbing"),
+    BACKPACKING("Backpacing"), CANOEING("Canoeing"),
+    KAYAKING("Kayaking"), RAFTING("Rafting");
 
-    String name;
+    public String name;
 
     ActivityType(String name) {
         this.name = name;
