@@ -2,9 +2,11 @@ package com.CTW.applicant;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ApplicantDao {
 
     private JdbcTemplate jdbcTemplate;

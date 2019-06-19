@@ -14,7 +14,7 @@ public class ApplicantController {
         this.applicantService = applicantService;
     }
 
-    @GetMapping
+    @GetMapping("/applicants")
     public List<Applicant> listAllApplicants(){
         return applicantService.listAllApplicants();
     }
