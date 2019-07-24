@@ -2,7 +2,7 @@ package com.CTW.program;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.*;
 
 public class Program {
 
@@ -12,8 +12,8 @@ public class Program {
     private String location;
     private ActivityType activityType;
     private String season;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String description;
     private BigDecimal price;
     private int candidateLimit;
@@ -22,7 +22,7 @@ public class Program {
     public Program() {
     }
 
-    public Program(int id, String address, String programCode, String location, String activityType, String season, LocalDateTime startDate, LocalDateTime endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
+    public Program(int id, String address, String programCode, String location, String activityType, String season, LocalDate startDate, LocalDate endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
         this.id = id;
         this.address = address;
         this.programCode = programCode;
@@ -54,11 +54,11 @@ public class Program {
         return season;
     }
 
-    public LocalDateTime getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
