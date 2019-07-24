@@ -22,11 +22,10 @@ public class Program {
     public Program() {
     }
 
-    public Program(int id , String programCode, String location, String activityType, String season, LocalDateTime startDate,
-                   LocalDateTime endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
+    public Program(int id, String address, String programCode, String location, String activityType, String season, LocalDateTime startDate, LocalDateTime endDate, String description, BigDecimal price, int candidateLimit, String programStatus) {
         this.id = id;
+        this.address = address;
         this.programCode = programCode;
-        this.address = createAddress(location, activityType);
         this.location = location;
         this.activityType = ActivityType.valueOf(activityType);
         this.season = season;
@@ -38,8 +37,9 @@ public class Program {
         this.programStatus = ProgramStatus.valueOf(programStatus);
     }
 
-    public int getId() {
-        return id;
+
+    public String getProgramCode() {
+        return programCode;
     }
 
     public String getLocation() {
@@ -82,7 +82,4 @@ public class Program {
         return address;
     }
 
-    private String createAddress(String location, String activityType){
-        return location.toLowerCase() + "-" + activityType.toLowerCase();
-    }
 }

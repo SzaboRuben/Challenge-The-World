@@ -13,6 +13,7 @@ public class ProgramDao {
     private static final RowMapper<Program> programRowMapper = (rs, i) ->
             new Program(
                     rs.getInt("id"),
+                    rs.getString("address"),
                     rs.getString("programCode"),
                     rs.getString("location"),
                     rs.getString("activityType"),
@@ -24,7 +25,7 @@ public class ProgramDao {
                     rs.getInt("candidateLimit"),
                     rs.getString("programStatus")
             );
-    private static final String SQL_SELECT_ALL_PROGRAMS = "SELECT id, programCode, location, activityType,season,startDate,endDate ,description,price, candidateLimit ,programStatus from program";
+    private static final String SQL_SELECT_ALL_PROGRAMS = "SELECT id, address, programCode, location, activityType,season,startDate,endDate ,description,price, candidateLimit ,programStatus FROM program";
     JdbcTemplate jdbcTemplate;
 
     public ProgramDao(JdbcTemplate jdbcTemplate) {
@@ -36,8 +37,10 @@ public class ProgramDao {
     }
 
     public void saveProductAndGetId(Program program) {
-        jdbcTemplate.update("INSERT INTO `program`(`location`, `activityType`, `season`, `startDate`, `endDate`, `description`, `price`, `candidateLimit`, `programStatus`)" +
-                        "VALUES (?,?,?,?,?,?,?,?,?)",
+        jdbcTemplate.update("INSERT INTO `program`(`address`, `programCode`,`location`, `activityType`, `season`, `startDate`, `endDate`, `description`, `price`, `candidateLimit`, `programStatus`)" +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?)",
+                program.getAddress(),
+                program.getProgramCode(),
                 program.getLocation(),
                 program.getActivityType(),
                 program.getSeason(),
