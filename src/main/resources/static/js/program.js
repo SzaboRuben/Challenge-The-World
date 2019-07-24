@@ -30,14 +30,15 @@ function showProgram(jsonData) {
                                       <button type="button" class="btn btn-info">REQUEST INFO</button>
                                       <button type="button" class="btn btn-primary">APPLY NOW!</button>
                                       </div>
-                                      <div> LOCATION </div>
-                                        <div id="location">  </div>
-                                      <div> ACTIVITY TYPE(S) </div>
-                                        <div id="activityType">  </div>
-                                      <div> PRICE </div>
-                                        <div id="price">  </div>
-                                      <div> DATES </div>
-                                          <div>FROM: <span id="startDate">  <span> TO: <span id="endDate">  <span></div>
+                                      <div class="d-flex justify-content-start"> LOCATION </div>
+                                        <div  class="d-flex justify-content-around" id="location">  </div>
+                                      <div class="d-flex justify-content-start"> ACTIVITY TYPE(S) </div>
+                                        <div  class="d-flex justify-content-around" id="activityType">  </div>
+                                      <div class="d-flex justify-content-start"> PRICE </div>
+                                        <div  class="d-flex justify-content-around"  id="price">  </div>
+                                      <div class="d-flex justify-content-start"> DATES </div>
+                                          <div class="d-flex justify-content-around">STARTS: <span id="startDate"> </span> </div>
+                                          <div class="d-flex justify-content-around">ENDS: <span id="endDate">  </span></div>
                                   </div>
 
                                   <div>
@@ -56,7 +57,7 @@ function showProgram(jsonData) {
 
      location.innerHTML = jsonData.location;
      activityType.innerHTML = jsonData.activityType;
-     price.innerHTML = jsonData.price;
+     price.innerHTML = jsonData.price + " HUF";
      startDate.innerHTML = jsonData.startDate;
      endDate.innerHTML = jsonData.endDate;
 
