@@ -30,4 +30,11 @@ public class UserDao {
                 "SELECT id, name, email, user_name, password, enabled, role, user_status FROM users",
                 USER_ROW_MAPPER);
     }
+
+    public User getUserByUserName(String userName) {
+        return jdbcTemplate.queryForObject(
+                "SELECT id, name, email, user_name, password, enabled, role, user_status FROM users WHERE user_name = ? ",
+                USER_ROW_MAPPER,
+                userName);
+    }
 }
