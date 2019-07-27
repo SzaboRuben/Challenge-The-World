@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
+
 @SpringBootApplication
 @EnableWebSecurity
 @Configuration
@@ -32,11 +33,10 @@ public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  
 				.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/", "/js/**", "/api/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/users").permitAll()
                 .and()
 				.formLogin()
-				.loginPage("/login.html").loginProcessingUrl("/login")
-				.defaultSuccessUrl("/index.html")
+//				.loginPage("/login.html").loginProcessingUrl("/login")
+//				.defaultSuccessUrl("/index.html")
 				.and()
 				.logout();
 	}
@@ -49,8 +49,8 @@ public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth, DataSource dataSource, PasswordEncoder passwordEncoder) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder)
-				.usersByUsernameQuery("select name,password,enabled from users where name=?")
-				.authoritiesByUsernameQuery("select name, role from users where name = ?");
+				.usersByUsernameQuery("SELECT user_name, password, enabled FROM users WHERE user_name=?")
+				.authoritiesByUsernameQuery("SELECT user_name, role FROM users WHERE user_name = ?");
 
 	}
 
