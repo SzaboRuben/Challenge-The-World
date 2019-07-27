@@ -17,7 +17,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> listUsers(){
+    public List<User> listUsers() {
         return userService.listUsers();
     }
 
@@ -27,12 +27,22 @@ public class UserController {
             return new User(1, "VISITOR");
         }
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String userName = userDetails.getUsername();
-        return getUserByUserName(userName);
+        User user = getUserByUserName(userDetails.getUsername());
+        return new User(1, user.getRole());
     }
 
-    private User getUserByUserName(String userName){
-        return userService.getUserByUserName( userName);
+
+    @GetMapping("/user")
+    public User geUserDetails(Authentication authentication) {
+        if (authentication == null) {
+            return new User(1, "VISITOR");
+        }
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return getUserByUserName(userDetails.getUsername());
+    }
+
+    private User getUserByUserName(String userName) {
+        return userService.getUserByUserName(userName);
     }
 
 }

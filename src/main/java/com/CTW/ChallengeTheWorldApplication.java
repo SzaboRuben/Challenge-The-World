@@ -32,7 +32,7 @@ public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  
 				.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/", "/js/**", "/api/**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/users").permitAll()
                 .and()
 				.formLogin()
 				.loginPage("/login.html").loginProcessingUrl("/login")
