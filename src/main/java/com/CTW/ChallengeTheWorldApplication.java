@@ -20,7 +20,6 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @EnableWebSecurity
 @Configuration
-
 public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  {
 
 	public static void main(String[] args) {
@@ -28,22 +27,22 @@ public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(final HttpSecurity http) throws Exception {
 		http
 				.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/", "/js/**", "/api/**").permitAll()
-                .and()
+				.and()
 				.formLogin()
-//				.loginPage("/login.html").loginProcessingUrl("/login")
-//				.defaultSuccessUrl("/index.html")
+				.loginPage("/login.html").loginProcessingUrl("/login")
+				.defaultSuccessUrl("/index.html")
 				.and()
 				.logout();
 	}
 
 	@Bean
 	public PasswordEncoder encoder() {
-		return new BCryptPasswordEncoder(4);
+		return new BCryptPasswordEncoder();
 	}
 
 	@Autowired

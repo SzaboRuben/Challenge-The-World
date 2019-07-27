@@ -99,6 +99,7 @@ function defaultNavBar(){
                         <li class="nav-item dropdown"  id="admin" >
                         </li>
                     </ul>
+                    <form name='f' action="login" method='POST'>
                     <table id="loginOrLoggedIn">
                         <tbody>
                         <tr>
@@ -107,10 +108,8 @@ function defaultNavBar(){
                             <td><input class="form-control form-control-lg" type="password" id="password" name="password"
                                        placeholder="password"/></td>
                             <td>
-                                <button type="submit" class="btn btn-outline-warning btn-lg" id="login" onclick="document.forms[0].submit();>Log In </button>
+                                <button class="btn btn-outline-warning btn-lg" id="submitlogin" onclick="login();">Log In </button>
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <a href="login.html">Create New Account</a>
                             </td>
@@ -119,7 +118,17 @@ function defaultNavBar(){
                         </tr>
                         </tbody>
                     </table>
+                  </form>
                 </div>
                 `;
 
 }
+
+function login(){
+console.log(document.forms[0]);
+//document.forms[0].submit();
+}
+//
+//window.onkeydown = e => {
+//    if (e.keyCode == 13) { document.forms[0].submit(); }
+//}

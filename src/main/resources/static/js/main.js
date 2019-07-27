@@ -1,6 +1,4 @@
-window.onload = function () {
-  fetchPrograms();
-};
+fetchPrograms();
 
 
 function fetchPrograms() {
