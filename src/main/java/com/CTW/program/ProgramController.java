@@ -26,6 +26,6 @@ public class ProgramController {
 
     @PostMapping("/programs")
     public void saveProductAndGetId(@RequestBody Program program) {
-        programService.saveProductAndGetId(program);
+        programService.saveProgramAndGetId(program);
     }
 }

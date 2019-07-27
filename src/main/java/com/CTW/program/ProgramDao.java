@@ -36,8 +36,8 @@ public class ProgramDao {
         return jdbcTemplate.query(SQL_SELECT_ALL_PROGRAMS, programRowMapper);
     }
 
-    public void saveProductAndGetId(Program program) {
-        jdbcTemplate.update("INSERT INTO `program`(`address`, `programCode`,`location`, `activityType`, `season`, `startDate`, `endDate`, `description`, `price`, `candidateLimit`, `programStatus`)" +
+    public void saveProgramAndGetId(Program program) {
+        jdbcTemplate.update("INSERT INTO program(address, programCode, location, activityType, season, startDate, endDate, description, price, candidateLimit, programStatus)" +
                         "VALUES (?,?,?,?,?,?,?,?,?,?)",
                 program.getAddress(),
                 program.getProgramCode(),

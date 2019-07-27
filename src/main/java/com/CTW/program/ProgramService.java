@@ -17,7 +17,7 @@ public class ProgramService {
         return programDao.listPrograms();
     }
 
-    public void saveProductAndGetId(Program program) {
-        programDao.saveProductAndGetId(program);
+    public void saveProgramAndGetId(Program program) {
+        programDao.saveProgramAndGetId(program);
     }
 }

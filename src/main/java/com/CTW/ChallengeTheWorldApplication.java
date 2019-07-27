@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,8 +32,8 @@ public class ChallengeTheWorldApplication extends WebSecurityConfigurerAdapter  
 				.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/", "/js/**", "/api/**").permitAll()
-				.antMatchers("/**").hasRole("USER")
-				.and()
+//                .antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
+                .and()
 				.formLogin()
 				.loginPage("/login.html").loginProcessingUrl("/login")
 				.defaultSuccessUrl("/index.html")
