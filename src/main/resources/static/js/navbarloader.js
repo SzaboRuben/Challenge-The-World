@@ -1,7 +1,7 @@
-loadNavBarAsPerRole();
+//loadNavBarAsPerRole();
 
 
-var defaultNavBar = defaultNavBar();
+defaultNavBar()
 
 function loadNavBarAsPerRole() {
 
@@ -36,8 +36,19 @@ function navBarForVisitor(){
         navbar.innerHTML = defaultNavBar();
 }
 
+function navBarForUser(){
+        var navbar = document.querySelector('#navbar');
+        navbar.innerHTML = defaultNavBar();
+}
+
+function navBarForAdmin(){
+        var navbar = document.querySelector('#navbar');
+        navbar.innerHTML = defaultNavBar();
+}
+
 function defaultNavBar(){
-    return `
+    var navbar = document.querySelector('#navbar');
+    navbar.innerHTML = `
                 <span class="navbar-brand">Challenge The World</span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
